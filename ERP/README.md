@@ -7,7 +7,8 @@
 ![Bootstrap](https://img.shields.io/badge/Tools-Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)
 
 ### Update History
-* Dec 5, 2024
-  - Sign In View, Function, and Session Created
-  - Tested for sign in using SQL Server Data
-  - Authorized View Created
+* #### Dec 5, 2024
+  - SignIn view, function, and session created
+  - Tested user Auhtentication
+ 
+
