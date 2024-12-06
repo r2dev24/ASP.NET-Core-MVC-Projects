@@ -4,6 +4,7 @@ using ERP.Data;
 using ERP.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERP.Controllers
@@ -28,28 +29,42 @@ namespace ERP.Controllers
         }
 
         public IActionResult SignIn(Account account) {
-            //user validation
-            var user = _context.Accounts.FirstOrDefault(a => a.Account_ID == account.Account_ID && account.Account_Password == account.Account_Password);
+            var user = _context.Accounts.FirstOrDefault(a => a.Account_ID == account.Account_ID);
 
+            //user validation
             if (user != null)
             {
-                var claims = new List<Claim>
+                //Define Password Hasher
+                var hasher = new PasswordHasher<object>();
+                //Hashing User Password
+                var hashed = hasher.HashPassword(null, account.Account_Password);
+                //Hashing verifying
+                var verify = hasher.VerifyHashedPassword(null, user.Account_Password, account.Account_Password);
+
+                if (verify == PasswordVerificationResult.Success)
+                {
+                    var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.Account_ID),
                     new Claim(ClaimTypes.Role, "User")
                 };
 
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                var authProperties = new AuthenticationProperties
-                {
-                    IsPersistent = true, 
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
-                };
+                    var authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = true,
+                        ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
+                    };
 
-                HttpContext.SignInAsync("CookieAuth", new ClaimsPrincipal(identity), authProperties).Wait();
+                    HttpContext.SignInAsync("CookieAuth", new ClaimsPrincipal(identity), authProperties).Wait();
 
-                return RedirectToAction("Index", "Dashboard");
+                    return RedirectToAction("Index", "Dashboard");
+                }
+
+                ViewBag.ErrorMessage = "아이디 또는 비밀번호가 잘 못되었습니다.";
+                return RedirectToAction("Index", "Home");
+
             } else
             {
                 ViewBag.ErrorMessage = "아이디 또는 비밀번호가 잘 못되었습니다.";
