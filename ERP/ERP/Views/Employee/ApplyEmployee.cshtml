@@ -1,0 +1,190 @@
+﻿@model EmployeeViewModel
+
+@{
+    ViewData["Title"] = "홈 | R2D ERP";
+}
+
+<!-- CSS For Erase Empty Space -->
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<!-- Main Container -->
+<div class="container-fluid row">
+    <!-- Column 1 Navbar(vertical) -->
+    <div class="col col-1 bg-dark vh-100 pt-3">
+        <ul class="nav flex-column gap-4">
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-controller="Employee" asp-action="Index">메인</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-controller="Employee" asp-action="ApplyEmployee">직원 등록</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white">직책관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white">급여 관리</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Column 2 Contents-->
+    <div class="col col-11 p-3">
+        <!-- Header -->
+        <div class="container-fluid">
+            <!--Page Title-->
+            <h2 class="mb-0 fw-bold">직원등록</h2>
+        </div>
+
+        <!--Main Contents-->
+        <div class="container-fluid mt-5">
+            <!--Form Start-->
+            <form asp-controller="Employee" asp-action="AddEmployee" method="post">
+                <h4 class="mb-4 fw-bold">기본 정보</h4>
+               <!--Row 1-->
+               <div class="row">
+                   <!--Row 1 Col 1-->
+                    <div class="col col-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">성 명</span>
+                            <input type="text" asp-for="Employee_Name" class="form-control " placeholder="이름을 입력하세요.">
+                        </div>
+                   </div>
+                    <!--Row 1 Col 2-->
+                    <div class="col col-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">영문 이름</span>
+                            <input type="text" asp-for="Employee_English_Name" class="form-control" placeholder="영문 성명을 입력하세요.">
+                        </div>
+                    </div>
+               </div>
+
+                <!--Row 2-->
+                <div class="row">
+                    <!--Row 2 Col 1-->
+                    <div class="col col-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">전화번호</span>
+                            <input type="text" asp-for="Employee_Phone" class="form-control " placeholder="전화번호를 입력하세요.">
+                        </div>
+                    </div>
+                    <!--Row 2 Col 2-->
+                    <div class="col col-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">이메일</span>
+                            <input type="email" asp-for="Employee_Email" class="form-control" placeholder="이메일 주소를 입력하세요.">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Row 3-->
+                <div class="row">
+                    <!--Row 3 Col 1-->
+                    <div class="col col-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">생년월일</span>
+                            <input type="date" asp-for="Employee_DateOfBirth" class="form-control" id="dateInput">
+                        </div>
+                    </div>
+                    <!--Row 3 Col 2-->
+                    <div class="col col-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">입사일</span>
+                            <input type="date" asp-for="Employee_JoinDate" class="form-control" id="dateInput" />
+                        </div>
+                    </div>
+                    <!--Row 3 Col 3-->
+                    <div class="col col-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">성별</span>
+                            <select class="form-select" asp-for="Employee_Sex">
+                                <option selected>성별을 선택해주세요.</option>
+                                <option value="남성">남성</option>
+                                <option value="여성">여성</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Row 4-->
+                <div class="row">
+                    <!--Row 4 Col 1-->
+                    <div class="col col-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">최종학력</span>
+                            <select class="form-select" asp-for="EducationStatus">
+                                <option selected>선택</option>
+                                <option value="고졸">고등학교 졸업</option>
+                                <option value="초대졸">전문대 졸업</option>
+                                <option value="4년제">대학교 졸업</option>
+                                <option value="대학원">대학원 졸업</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--Row 1 Col 2-->
+                    <div class="col col-3">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">학교명</span>
+                            <input type="text" asp-for="School_Name" class="form-control" placeholder="학교명을 입력하세요. (국외 영문작성) ">
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4 mb-4 fw-bold">주소</h4>
+                <!--Row 1-->
+                <div class="row">
+                    <!--Row 1 Col 1-->
+                    <div class="col col-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">동/호</span>
+                            <input type="text" asp-for="Unit" class="form-control " placeholder="동/호수를 입력하세요">
+                        </div>
+                    </div>
+                    <!--Row 1 Col 2-->
+                    <div class="col col-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">도로명</span>
+                            <input type="text" asp-for="StreetName" class="form-control" placeholder="도로명을 입력하세요.">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Row 2-->
+                <div class="row">
+                    <!--Row 2 Col 1-->
+                    <div class="col col-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">도시</span>
+                            <input type="text" asp-for="City" class="form-control " placeholder="도시를 입력하세요.">
+                        </div>
+                    </div>
+                    <!--Row 2 Col 2-->
+                    <div class="col col-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">도/시</span>
+                            <input type="text" asp-for="Province" class="form-control" placeholder="예) 경기도, 서울시">
+                        </div>
+                    </div>
+                    <!--Row 2 Col 3-->
+                    <div class="col col-2">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text fw-bold">우편번호</span>
+                            <input type="text" asp-for="PostalCode" class="form-control" placeholder="우편번호를 입력하세요.">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <button type="reset" class="btn btn-danger btn-lg mx-2 w-25">취소</button>
+                    <button type="submit" class="btn btn-primary btn-lg mx-2 w-25">등록</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

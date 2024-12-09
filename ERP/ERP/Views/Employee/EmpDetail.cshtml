@@ -1,0 +1,84 @@
+﻿@model EmployeeViewModel
+
+@{
+    ViewData["Title"] = "직원 상세 정보";
+}
+
+<div class="container mt-5">
+    <h2 class="fw-bold mb-4">직원 상세 정보</h2>
+    <div class="card border-0">
+        <form>
+            <div class="input-group input-group-lg mb-2">
+                <span class="input-group-text fw-bold">직원이름</span>
+                <input type="text" class="form-control fs-2 fw-bold" readonly placeholder="@Model.Employee_Name">
+
+                <span class="input-group-text fw-bold" id="inputGroup-sizing">영문이름</span>
+                <input type="text" class="form-control fs-2 fw-bold" readonly placeholder="@Model.Employee_English_Name">
+            </div>
+
+            <div class="input-group mb-2">
+                <span class="input-group-text fw-bold">생년월일</span>
+                <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.Employee_DateOfBirth">
+
+                <span class="input-group-text fw-bold">입사일&nbsp;&nbsp;&nbsp;</span>
+                <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.Employee_JoinDate">
+            </div>
+
+            <div class="input-group mb-2">
+                <span class="input-group-text fw-bold">학 력</span>
+                <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.EducationStatus">
+
+                <span class="input-group-text fw-bold">학교</span>
+                <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.School_Name">
+            </div>
+
+            <div class="input-group  mb-5">
+                <span class="input-group-text fw-bold">전화번호</span>
+                <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.Employee_Phone">
+
+                <span class="input-group-text fw-bold">이메일&nbsp;&nbsp;&nbsp;</span>
+                <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.Employee_Email">
+                <span class="input-group-text fw-bold">성 별&nbsp;&nbsp;&nbsp;</span>
+                <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.Employee_Sex">
+            </div>
+
+            <div class="row g-0 mb-2">
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-text fw-bold">동/호</span>
+                        <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.Unit">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <span class="input-group-text fw-bold">도로명</span>
+                        <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.StreetName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-text fw-bold">도시</span>
+                        <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.City">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-0 mb-5">
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-text fw-bold">시/도</span>
+                        <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.Province">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-text fw-bold">우편번호</span>
+                        <input type="text" class="form-control fs-5 fw-bold" readonly placeholder="@Model.PostalCode">
+                    </div>
+                </div>
+            </div>
+
+            <a href="@Url.Action("Index", "Employee")" class="btn btn-primary mt-3">목록으로 돌아가기</a>
+        </form>
+    </div>
+</div>

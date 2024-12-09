@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "홈 | R2D ERP";
+}
+
+<!-- CSS For Erase Empty Space -->
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<!-- Main Container -->
+<div class="container-fluid row">
+    <!-- Column 1 Navbar(vertical) -->
+    <div class="col col-1 bg-dark vh-100 pt-3">
+        <ul class="nav flex-column gap-4">
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-controller="Employee" asp-action="Index">메인</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" asp-controller="Employee" asp-action="ApplyEmployee">직원 등록</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white">직책관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white">급여 관리</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Column 2 Contents-->
+    <div class="col col-11 p-3">
+        <!-- Total Employee -->
+        <div class="card" style="width: 18rem;">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold">총 직원</h5>
+                <h6 class="card-subtitle mb-2 text-dark fs-1"><strong>@Model.Count()</strong></h6>
+            </div>
+        </div>
+
+        <!--Emp List-->
+        <div class="container-fluid mt-3">
+            <div class="d-flex justify-content-between">
+                <h4 class="fw-bold">직원 목록</h4>
+                <!--Employee Search-->
+                <form class="d-flex w-25 p-2">
+                    <input class="form-control me-2" type="search" placeholder="직원 검색" aria-label="Search">
+                    <button class="btn btn-dark w-25" type="submit">검색</button>
+                </form>
+            </div>
+            <div style="max-height: 300px; overflow-y: auto;">
+                <table class="table table-striped">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th>직원 ID</th>
+                            <th>이름</th>
+                             <th>생년월일</th>
+                            <th>입사일</th>
+                            <th>전화번호</th>
+                            <th>이메일</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        @foreach (var employee in Model)
+                        {
+                            <tr>
+                                <td>@employee.Employee_ID</td>
+                                <td>@employee.Employee_Name</td>
+                                <td>@employee.Employee_DateOfBirth.ToString("yyyy-MM-dd")</td>
+                                <td>@employee.Employee_JoinDate.ToString("yyyy-MM-dd")</td>
+                                <td>@employee.Employee_Phone</td>
+                                <td>
+                                    <span>@employee.Employee_Email</span>
+                                </td>
+                                <td class="text-center">
+                                    <a href="@Url.Action("Details", "Employee", new { id = employee.Employee_ID })"
+                                       class="btn btn-primary btn-sm fw-bold">정보보기</a>
+
+
+                                    <a href="@Url.Action("Edit", "Employee", new { id = employee.Employee_ID })"
+                                       class="btn btn-danger btn-sm fw-bold">수정하기</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
