@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Employee</title>
+    <script type="importmap"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Employee.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-fluid p-0 m-0 row">
+        <div class="col col-2 vh-100 bg-dark">
+            <ul class="nav flex-column gap-5">
+                <a class="navbar-brand fs-1 fw-bold text-white" href="#">EMP MANAGER</a>
+                <li class="nav-item">
+                    <a class="nav-link fs-4 text-white fw-bold" asp-controller="Home" asp-action="Index">대쉬보드</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-4 text-white fw-bold" asp-controller="Employee" asp-action="Index">직원관리</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-4 text-white fw-bold" href="#">부서관리</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-4 text-white fw-bold" href="#">설정</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col col-10 vh-100">
+            <!--Body-->
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

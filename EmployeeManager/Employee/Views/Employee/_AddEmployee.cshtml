@@ -1,0 +1,134 @@
+﻿<div class="container-fluid mt-5">
+    <form method="post">
+        <p class="fs-3 fw-bold">기본 정보</p>
+        <!-- Row 1 -->
+        <div class="row">
+            <!-- Name -->
+            <div class="col-2">
+                <label class="form-label fw-bold">이름</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <!-- DoB -->
+            <div class="col-2">
+                <label class="form-label fw-bold">생년월일</label>
+                <input type="date" class="form-control">
+            </div>
+
+            <!-- Phone -->
+            <div class="col-2">
+                <label class="form-label fw-bold">전화번호</label>
+                <input type="text" class="form-control">
+            </div>
+
+            <!-- Email -->
+            <div class="col-3">
+                <label class="form-label fw-bold">이메일</label>
+                <input type="email" class="form-control">
+            </div>
+        </div>
+
+        <!-- Row 2-->
+        <div class="row mt-3">
+            <!--Unit-->
+            <div class="col-1">
+                <label class="form-label fw-bold">동 / 호수</label>
+                <input type="text" class="form-control" />
+            </div>
+
+            <!--Address-->
+            <div class="col-3">
+                <label class="form-label fw-bold">도로명 주소</label>
+                <input type="text" class="form-control" />
+            </div>
+
+            <!--City-->
+            <div class="col-2">
+                <label class="form-label fw-bold">시/군/구</label>
+                <input type="text" class="form-control" />
+            </div>
+
+            <!--Postal Code-->
+            <div class="col-2">
+                <label class="form-label fw-bold">시/도</label>
+                <input type="text" class="form-control" />
+            </div>
+
+            <!--Postal Code-->
+            <div class="col-2">
+                <label class="form-label fw-bold">우편번호</label>
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+
+
+        <p class="fs-3 fw-bold mt-5">학력</p>
+        <!-- Row 3 -->
+        <div id="education-container">
+            <div class="row mt-3">
+                <!-- Education Status-->
+                <div class="col-2">
+                    <label class="form-label fw-bold">상태</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>졸업여부</option>
+                        <option value="1">대학교 졸업</option>
+                        <option value="2">대학교 중퇴</option>
+                        <option value="3">전문대 졸업</option>
+                        <option value="4">전문대 중퇴</option>
+                        <option value="5">고등학교 졸업</option>
+                        <option value="6">고등학교 중퇴</option>
+                        <option value="7">기타</option>
+                    </select>
+                </div>
+
+                <!-- School name -->
+                <div class="col-4">
+                    <label class="form-label fw-bold">학교명</label>
+                    <input type="text" class="form-control" />
+                </div>
+
+                <!-- Major -->
+                <div class="col-3">
+                    <label class="form-label fw-bold">전공</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+        <button type="button" id="add-education" class="btn btn-success mt-3">학력추가</button>
+
+        <!-- Work Experiences -->
+        <p class="fs-3 fw-bold mt-5">경력</p>
+        <div id="experience-container">
+            <div class="row mt-3">
+                <div class="col-1">
+                    <label class="form-label fw-bold">시작일</label>
+                    <input type="date" class="form-control" />
+                </div>
+                <div class="col-1">
+                    <label class="form-label fw-bold">종료일</label>
+                    <input type="date" class="form-control" />
+                </div>
+                <div class="col-3">
+                    <label class="form-label fw-bold">회사명</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-2">
+                    <label class="form-label fw-bold">부서</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col-2">
+                    <label class="form-label fw-bold">직급</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <button type="button" id="add-experience" class="btn btn-success mt-3">경력추가</button>
+
+        <div class="text-center mt-5">
+            <button type="reset" class="btn btn-danger fs-4 fw-bold mt-3 me-5">등록취소</button>
+            <button type="submit" class="btn btn-primary fs-4 fw-bold mt-3">직원등록</button>
+        </div>
+
+    </form>
+</div>
