@@ -218,4 +218,4 @@ C:\Projects\Employee\Employee\obj\Debug\net9.0\Employee.pdb
 C:\Projects\Employee\Employee\obj\Debug\net9.0\Employee.genruntimeconfig.cache
 C:\Projects\Employee\Employee\obj\Debug\net9.0\ref\Employee.dll
 C:\Projects\Employee\Employee\obj\Debug\net9.0\compressed\bnw95zo4u4-rcmywl0uzs.gz
-C:\Projects\Employee\Employee\obj\Debug\net9.0\compressed\2am79rajcy-xx9gbtooqs.gz
+C:\Projects\Employee\Employee\obj\Debug\net9.0\compressed\2am79rajcy-z7s3owm2md.gz
