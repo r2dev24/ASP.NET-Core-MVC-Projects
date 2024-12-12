@@ -1,0 +1,59 @@
+﻿@model Employee.Models.EmployeeViewModel
+
+<div>
+    <h1>Employee List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model.Employees)
+            {
+                <tr>
+                    <td>@employee.Employee_ID</td>
+                    <td>@employee.Employee_Name</td>
+                    <td>@employee.Employee_Email</td>
+                    <td>@employee.Employee_Phone</td>
+                    <td>
+                        <!-- 상세보기 버튼 -->
+                        <a href="javascript:void(0);"
+                           class="btn btn-info btn-sm"
+                           onclick="loadDetails(@employee.Employee_ID)">
+                            상세보기
+                        </a>
+
+                        <!-- 수정하기 버튼 -->
+                        <a href="@Url.Action("Edit", "Employee", new { id = employee.Employee_ID })"
+                           class="btn btn-warning btn-sm">
+                            수정하기
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailModalLabel">직원 상세 정보</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Partial View -->
+                    <div id="modalBodyContent">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

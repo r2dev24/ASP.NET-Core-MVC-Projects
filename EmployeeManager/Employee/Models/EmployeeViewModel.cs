@@ -57,5 +57,7 @@ namespace Employee.Models
         [Required]
         public string JobTitle { get; set; }
 
+        public List<EmployeeModel> Employees { get; set; } = new List<EmployeeModel>();
     }
 }
+

@@ -1,0 +1,152 @@
+﻿@model Employee.Models.EmployeeModel
+
+<h3 class="fw-bold mb-3">기본정보</h3>
+
+<div class="row">
+    <div class="col-8">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name</span>
+            <input type="text" readonly class="form-control fw-bold" value="@Model.Employee_Name" aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">BirthDate</span>
+            <input type="text" readonly class="form-control" value="@Model.Employee_BirthDate.ToString("yyyy-MM-dd")" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+            <input type="text" readonly class="form-control" value="@Model.Employee_Email" aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Phone</span>
+            <input type="text" readonly class="form-control" value="@Model.Employee_Phone" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>
+
+<h3 class="fw-bold mt-3 mb-3">주소</h3>
+
+<div class="row">
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Unit</span>
+            <input type="text" readonly class="form-control" value="@Model.AddressModel.Address_Unit" aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="col-8">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Street Address</span>
+            <input type="text" readonly class="form-control" value="@Model.AddressModel.Address_Street" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">City</span>
+            <input type="text" readonly class="form-control" value="@Model.AddressModel.Address_City" aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Province</span>
+            <input type="text" readonly class="form-control" value="@Model.AddressModel.Address_Region" aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Postal Code</span>
+            <input type="text" readonly class="form-control" value="@Model.AddressModel.Address_PostalCode" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>
+
+<h3 class="fw-bold mt-3 mb-3">학력</h3>
+
+<div class="row">
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Status</span>
+            <input type="text" 
+                readonly class="form-control"
+
+                   class="form-control text-start"
+                   value="@(Model.EducationModel.Education_Status switch
+                               {
+                                   "1" => "대학교 졸업",
+                                   "2" => "대학교 중퇴",
+                                   "3" => "전문대 졸업",
+                                   "4" => "전문대 중퇴",
+                                   "5" => "고등학교 졸업",
+                                   "6" => "고등학교 중퇴",
+                                   "7" => "기타",
+                                   _ => "No Data"
+                               })"
+                aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Major</span>
+            <input type="text" readonly class="form-control" value="@Model.EducationModel.Education_Major" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Status</span>
+            <input type="text" readonly class="form-control" value="@Model.EducationModel.Education_School" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>
+
+<h3 class="fw-bold mt-3 mb-3">경력</h3>
+
+<div class="row">
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Start Date</span>
+            <input type="text" readonly class="form-control" value="@Model.CareerModell.StartDate.ToString("yyyy-MM-dd")" aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">End Date</span>
+            <input type="text" readonly class="form-control" value="@Model.CareerModell.EndDate.ToString("yyyy-MM-dd")" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-8">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Company Name</span>
+            <input type="text" readonly class="form-control" value="@Model.CareerModell.CompanyName" aria-describedby="basic-addon1">
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="input-group mb-2">
+            <span class="input-group-text" id="basic-addon1">Company Name</span>
+            <input type="text" readonly class="form-control" value="@Model.CareerModell.JobTitle" aria-describedby="basic-addon1">
+        </div>
+    </div>
+</div>

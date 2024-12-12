@@ -17,15 +17,33 @@ namespace Employee.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            // 직원 데이터와 관련 데이터를 모두 로드
+            var employees = _context.Employees
+                .Include(e => e.AddressModel)
+                .Include(e => e.EducationModel)
+                .Include(e => e.CareerModell)
+                .ToList();
+
+            // ViewModel로 데이터 매핑
+            var viewModel = new EmployeeViewModel
+            {
+                Employees = employees // 직원 목록 데이터를 ViewModel에 담음
+            };
+
+            return View(viewModel);
         }
 
         [HttpPost]
         public IActionResult newEmployee(EmployeeViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                // Employee 객체를 먼저 데이터베이스에 추가
+                // 유효성 검사 실패 시 View에 모델 데이터를 다시 전달
+                return View("Index", model);
+            }
+
+            try
+            {
                 var emp = new EmployeeModel
                 {
                     Employee_Name = model.Employee_Name,
@@ -35,9 +53,8 @@ namespace Employee.Controllers
                 };
 
                 _context.Add(emp);
-                _context.SaveChanges(); // SaveChanges 호출로 Employee_ID가 생성됨
+                _context.SaveChanges();
 
-                // 생성된 Employee_ID를 사용하여 Address, Education, Career 데이터를 추가
                 var addr = new EmployeeAddressModel
                 {
                     Address_Unit = model.Address_Unit,
@@ -45,7 +62,7 @@ namespace Employee.Controllers
                     Address_City = model.Address_City,
                     Address_Region = model.Address_Region,
                     Address_PostalCode = model.Address_PostalCode,
-                    Employee_ID = emp.Employee_ID, // 데이터베이스에서 받은 Employee_ID
+                    Employee_ID = emp.Employee_ID,
                 };
 
                 var edu = new EmployeeEducationModel
@@ -53,7 +70,7 @@ namespace Employee.Controllers
                     Education_Status = model.Education_Status,
                     Education_School = model.Education_School,
                     Education_Major = model.Education_Major,
-                    Employee_ID = emp.Employee_ID, // 데이터베이스에서 받은 Employee_ID
+                    Employee_ID = emp.Employee_ID,
                 };
 
                 var career = new EmployeeCareerModel
@@ -63,22 +80,40 @@ namespace Employee.Controllers
                     CompanyName = model.CompanyName,
                     Department = model.Department,
                     JobTitle = model.JobTitle,
-                    Employee_ID = emp.Employee_ID, // 데이터베이스에서 받은 Employee_ID
+                    Employee_ID = emp.Employee_ID,
                 };
 
-                // Address, Education, Career 데이터를 추가
                 _context.Add(addr);
                 _context.Add(edu);
                 _context.Add(career);
+                _context.SaveChanges();
 
-                _context.SaveChanges(); // 모든 변경사항을 데이터베이스에 저장
-
-                return RedirectToAction("Index", "Employee"); // "Index"로 리다이렉트
+                return RedirectToAction("Index", "Employee");
             }
-
-            return View("Index", "Employee");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return View("Index", model);
+            }
         }
 
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var employee = _context.Employees
+                .Include(e => e.AddressModel)
+                .Include(e => e.EducationModel)
+                .Include(e => e.CareerModell)
+                .FirstOrDefault(e => e.Employee_ID == id);
+
+            if (employee == null)
+            {
+                return NotFound(); // 직원 데이터가 없을 경우 404 반환
+            }
+
+            return PartialView("_DetailEmployee", employee);
+        }
 
 
     }

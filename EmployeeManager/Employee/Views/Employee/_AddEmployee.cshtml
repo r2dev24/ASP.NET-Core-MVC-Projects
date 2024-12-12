@@ -1,7 +1,7 @@
 ﻿@model Employee.Models.EmployeeViewModel
 
 <div class="container-fluid mt-5">
-    <form asp-controller="Employee" asp-action="NewEmployee" method="post">
+    <form asp-controller="Employee" asp-action="newEmployee" method="post">
         <p class="fs-3 fw-bold">기본 정보</p>
         <!-- Row 1 -->
         <div class="row">
@@ -13,7 +13,7 @@
 
             <div class="col-2">
                 <label asp-for="Employee_BirthDate" class="form-label fw-bold">생년월일</label>
-                <input asp-for="Employee_BirthDate" type="date" class="form-control" />
+                <input asp-for="Employee_BirthDate" type="date" value="@DateTime.Now"  class="form-control" />
                 <span asp-validation-for="Employee_BirthDate" class="text-danger"></span>
             </div>
 
@@ -103,11 +103,11 @@
             <div class="row mt-3">
                 <div class="col-1">
                     <label class="form-label fw-bold">시작일</label>
-                    <input asp-for="StartDate" type="date" class="form-control" />
+                    <input asp-for="StartDate" type="date" value="@DateTime.Now" class="form-control" />
                 </div>
                 <div class="col-1">
                     <label class="form-label fw-bold">종료일</label>
-                    <input asp-for="EndDate" type="date" class="form-control" />
+                    <input asp-for="EndDate" type="date" value="@DateTime.Now" class="form-control" />
                 </div>
                 <div class="col-3">
                     <label class="form-label fw-bold">회사명</label>
