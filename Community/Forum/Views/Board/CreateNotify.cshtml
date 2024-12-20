@@ -1,0 +1,82 @@
+﻿@model Notification
+
+@{
+    ViewData["Title"] = "공지사항 | 캐나다 한인 커뮤니티 Maples";
+}
+
+<div class="ad-wrapper">
+</div>
+
+<div class="notify-wrapper mt-4">
+    <!-- notify vertical nav -->
+    <div class="nw-left">
+        <ul class="nw-ul">
+            <li class="nw-list"><a class="nw-link" asp-controller="Category" asp-action="Notify">공지사항</a></li>
+        </ul>
+    </div>
+    <!-- notify content -->
+    <div class="nw-right">
+        <h1 style="color: white;">공지사항</h1>
+        <div class="board-wrapper mt-5">
+            <form asp-controller="Post" asp-action="PostNotify" method="post">
+                <!-- Writer -->
+                <ul class="bw-ul">
+                    <li class="bw-list">작성자</li>
+                    <li class="bw-list2">
+                        @if (User.HasClaim("IsAdmin", "true"))
+                        {
+                            <span style="color: white; font-weight: bold;">
+                                <img src="~/images/adminIcon.svg" style="width: 26px;" />
+                            </span>
+                        }
+                        @User.Identity.Name
+                    </li>
+                </ul>
+                <!-- Title -->
+                <ul class="bw-ul">
+                    <li class="bw-list">글 제목</li>
+                    <li class="bw-list3">
+                        <input asp-for="Title" class="title-input" placeholder="글 제목을 입력하세요." />
+                    </li>
+                </ul>
+
+                <!-- Content -->
+                <!--Text Control but not added to db-->
+                <div class="text-style-controls">
+                    <div class="custom-select">
+                        <div class="selected-option">글자 크기 조정</div>
+                        <div class="dropdown-options">
+                            <div class="option" data-value="12px">12px</div>
+                            <div class="option" data-value="14px">14px</div>
+                            <div class="option" data-value="16px">16px</div>
+                            <div class="option" data-value="18px">18px</div>
+                            <div class="option" data-value="20px">20px</div>
+                        </div>
+                    </div>
+
+                    <input type="color" class="color-select" id="fontColorPicker" value="#000000" />
+
+                    <button class="bold-btn" id="boldButton">B</button>
+                    <button class="italic-btn" id="italicButton">I</button>
+                </div>
+
+                <ul class="bw-ul">
+                    <li class="bw-list4">글 내용</li>
+                    <li class="bw-list5">
+                        <textarea asp-for="Content" class="content-input" id="contentInput" placeholder="글 내용을 입력하세요."></textarea>
+                    </li>
+                </ul>
+
+                <!-- Cancel Submit -->
+                <ul class="bw-ul">
+                    <li class="bw-list">
+                        <a class="add-btn canBtn">취소</a>
+                    </li>
+                    <li class="bw-list2">
+                        <button type="submit" class="add-btn">등록</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>

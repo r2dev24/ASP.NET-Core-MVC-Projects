@@ -1,0 +1,39 @@
+﻿@model IEnumerable<NotifyViewModel>
+
+<div class="na-wrapper">
+    <!--Write Button-->
+    <div class="na-func-wrap">
+        @if (User.HasClaim("IsAdmin", "true"))
+        {
+            <a asp-controller="Category" asp-action="CreateNotify" class="write-btn">글쓰기</a>
+        }
+    </div>
+    <!--article categories-->
+    <table class="article-category" style="margin: 0 auto;">
+        <thead style="background-color: #2d2d2d;">
+            <tr>
+                <th style="width:600px; color: white; height: 40px; line-height: 40px; text-align: center;">제목 </th>
+                <th style="width: 200px; color: white; height: 40px; line-height: 40px; text-align: center;">작성자 </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr c>
+                    <td style="width: 600px; color: white; text-align: center; height: 40px; line-height: 40px;">
+                        @item.Title
+                    </td>
+                    <td style="color: white; text-align: center; height: 40px; line-height: 40px;">
+                        @if (User.HasClaim("IsAdmin", "true"))
+                        {
+                            <span style="color: white; font-weight: bold;">
+                                <img src="~/images/adminIcon.svg" style="width: 26px;" />
+                            </span>
+                        }
+                        @item.User_NickName
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

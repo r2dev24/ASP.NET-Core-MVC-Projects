@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "공지사항 | 캐나다 한인 커뮤니티 Maples";
+}
+
+<div class="ad-wrapper">
+
+</div>
+
+<div class="notify-wrapper mt-4">
+    <!-- notify vertical nav -->
+    <div class="nw-left">
+        <ul class="nw-ul">
+            <li class="nw-list"><a class="nw-link" asp-controller="Category" asp-action="Notify">공지사항</a></li>
+        </ul>
+    </div>
+    <!-- notify content -->
+    <div class="nw-right">
+        <h1 style="color: white;">공지사항</h1>
+        <div class="nwr-board-wrapper mt-4">
+            <!-- 부트스트랩 탭 -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active fs-4" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+                        전체
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link  fs-4" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                        프로필
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link  fs-4" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                        연락처
+                    </button>
+                </li>
+            </ul>
+
+            <!-- 탭 콘텐츠 -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    @await Html.PartialAsync("_NotifyAll")
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    프로필 콘텐츠
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    연락처 콘텐츠
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

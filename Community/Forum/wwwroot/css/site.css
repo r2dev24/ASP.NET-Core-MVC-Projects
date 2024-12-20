@@ -1,0 +1,498 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1d1d1d;
+}
+
+header {
+    width: 100%;
+    border-bottom: 1px solid #e09c48;
+}
+
+/* Shared / _Layout */
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.w-header {
+    width: 1200px;
+    height: 35px;
+    text-align: end;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.text {
+    font-size: 14px;
+    color: white !important;
+    text-decoration: none;
+    line-height: 35px;
+}
+
+.link-box {
+    margin-left: 16px;
+}
+
+.text:hover {
+    color: #e09c48 !important;
+}
+
+/*Sign In & Sign Up*/
+.s-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+    height: 70vh;
+    align-content: center;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 62px;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+.sub-logo {
+    color: white;
+    font-size: 20px;
+}
+
+.input-group {
+    width: 400px;
+    margin: 0 auto;
+    color: white;
+}
+
+.inputs {
+    width: 400px;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.btn {
+    width: 400px;
+    height: 50px;
+    background-color: #e09c48;
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1d1d1d;
+}
+
+.btn:hover {
+     color: white;
+     background-color: #e09c48;
+}
+
+/*Logo and Ads*/
+
+.w-middle {
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.wm-left {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.wm-right {
+    width: 1000px;
+    height: 100px;
+}
+
+.wmr-adbox {
+    width: 900px;
+    height: 100px;
+    margin-left: 100px;
+    background-color: gray;
+    text-align: center;
+    align-content: center;
+}
+
+.ad-text {
+    font-size: 46px;
+    color: white;
+}
+
+/*nav*/
+.nav {
+    width: 1200px;
+    margin-top: 20px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+}
+
+.navItem {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+}
+
+.navlink {
+    text-decoration: none;
+    color: white !important;
+    font-size: 20px;
+}
+
+/* Profile View */
+.p-wrapper {
+    width: 1000px;
+    height: 700px;
+    margin: 30px auto;
+}
+
+.pw-header {
+    width: 1000px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+.pwh-tab {
+    width: 200px;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid gray;
+}
+
+.pw-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.pwh-content {
+    width: 980px;
+    height: 400px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.pwhc-ul {
+    margin: 0;
+    padding: 0;
+}
+
+.pwhc-left {
+    width: 200px;
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+.pwhc-item {
+    width: 200px;
+    height: 50px;
+    list-style: none;
+    display: block;
+    line-height: 50px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.pwhc-right {
+    width: 800px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.pwhc-ul2 {
+    margin: 0;
+    padding: 0;
+}
+
+.pwhc-item2 {
+    height: 50px;
+    list-style: none;
+    border-bottom: 1px solid black;
+    line-height: 46px;
+}
+
+.pwhc-input {
+    width: 300px;
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 4px;
+    border-color: lightgray;
+}
+
+.editBtn {
+    width: 100px;
+    height: 32px;
+    background-color: #e09c48;
+    border: none;
+    font-size: 14px;
+}
+
+/* Category Notify */
+.ad-wrapper {
+    width: 1200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.notify-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.nw-left {
+    width: 220px;
+    height: 70vh;
+    background-color: black;
+}
+
+.nw-ul {
+    margin: 0;
+    padding: 0;
+}
+
+.nw-list {
+    width: 220px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    list-style: none;
+}
+
+.nw-link {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.nw-list:hover {
+    background-color: #2d2d2d;
+}
+
+.nw-right {
+    width: 920px;
+    height: 100px;
+    margin-left: 60px;
+}
+
+.nwr-board-wrapper {
+    width: 920px;
+}
+
+.na-wrapper {
+    width: 1200px;
+    height: 40px;
+}
+
+.article-category {
+    
+}
+
+.na-func-wrap {
+    width: 1200px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end; /* 우측 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    margin: 10px 0 10px 0;
+}
+
+.write-btn {
+    width: 100px;
+    height: 34px;
+    background-color: #e09c48;
+    text-align: center;
+    line-height: 34px;
+    color: black;
+    text-decoration: none; /* 기본 밑줄 제거 */
+    border-radius: 5px; /* 둥근 모서리 */
+}
+
+/*CreateNotify Board*/
+.board-wrapper {
+    width: 1200px;
+}
+
+.bw-ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    border-bottom: 0.5px solid rgba(89, 126, 181, 0.1);
+}
+
+.bw-list {
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    list-style: none;
+    color: white;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.bw-list2 {
+    width: 980px;
+    height: 60px;
+    list-style: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-left: 20px;
+    line-height: 60px;
+}
+
+.bw-list3 {
+    width: 980px;
+    height: 60px;
+    list-style: none;
+    color: white;
+    letter-spacing: 2px;
+    margin-left: 20px;
+    line-height: 60px;
+}
+
+.title-input {
+    width: 860px;
+    height: 40px;
+    background-color: #1d1d1d;
+    border: 0.5px solid rgba(89, 126, 181, 0.4);
+    padding-left: 10px;
+    color: rgba(89, 126, 181, 1);
+}
+
+.bw-list4 {
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    list-style: none;
+    color: white;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.bw-list5 {
+    width: 980px;
+    height: 500px;
+    list-style: none;
+    color: white;
+    letter-spacing: 2px;
+    margin-left: 20px;
+    line-height: 60px;
+}
+
+.content-input {
+    width: 860px;
+    height: 480px;
+    font-size: 16px; /* 기본 글자 크기 */
+    color: #fff; /* 기본 글자 색상 */
+    font-weight: normal; /* 기본 굵기 */
+    font-style: normal; /* 기본 스타일 */
+    padding: 10px;
+    border: 0.5px solid rgba(89, 126, 181, 0.4);
+    background-color: rgba(89, 126, 181, 0.1);
+}
+
+.text-style-controls {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.font-select {
+    padding: 10px;
+    background-color: rgba(89, 126, 181, 0.1);
+    color: white;
+}
+
+.color-select {
+    width: 100px;
+    height: 44px;
+}
+
+.bold-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.italic-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.custom-select {
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+}
+
+.selected-option {
+    background-color: rgba(89, 126, 181, 0.1);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(89, 126, 181, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.dropdown-options .option {
+     padding: 10px;
+     background-color: rgba(89, 126, 181, 0.1);
+     color: #fff;
+     cursor: pointer;
+}
+
+.dropdown-options .option:hover {
+      background-color: #d9d9d9;
+}
+
+.add-btn {
+    width: 100px;
+    height: 40px;
+    background-color: #e09c48;
+    line-height: 40px;
+    margin-top: 10px;
+    display: block;
+}
+
+.canBtn {
+    color: black;
+    text-decoration: none;
+}

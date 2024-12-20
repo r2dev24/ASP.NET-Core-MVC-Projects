@@ -1,0 +1,46 @@
+﻿@model Account
+
+@{
+    ViewData["Title"] = "Sign In | Maples";
+}
+
+<div class="s-wrapper">
+    <a class="logo" asp-action="Index" asp-controller="Home">MAPLES</a>
+    <p class="sub-logo">캐나다 한인 대표 커뮤니티</p>
+
+    <form asp-controller="Auth" asp-action="MemberSignIn" method="post" style="margin-top: 40px;">
+        <div class="input-group">
+            <label asp-for="Account_Email">이메일</label>
+            <input asp-for="Account_Email" type="email" class="inputs" placeholder="이메일을 입력하세요." />
+            <span asp-validation-for="Account_Email" style="color: red;"></span>
+        </div>
+
+        <div class="input-group" style="margin-top: 20px;">
+            <label asp-for="Account_Password">비밀번호</label>
+            <input asp-for="Account_Password" type="password" class="inputs" placeholder="비밀번호를 입력하세요." />
+            <span asp-validation-for="Account_Password" style="color: red;"></span>
+        </div>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div style="color: red; margin-top: 10px;">
+                @foreach (var state in ViewData.ModelState)
+                {
+                    foreach (var error in state.Value.Errors)
+                    {
+                        <p>@error.ErrorMessage</p>
+                    }
+                }
+            </div>
+        }
+
+
+        <button type="submit" class="btn">로그인</button>
+    </form>
+
+    <a class="btn" asp-controller="Auth" asp-action="SignUp">회원가입</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

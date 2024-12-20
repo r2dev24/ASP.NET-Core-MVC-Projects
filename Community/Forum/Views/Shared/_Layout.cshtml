@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Forum</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Forum.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="wrapper">
+            <!-- Sign In / Sign Up or User NickName, SignOut -->
+            <div class="w-header mb-3">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <!-- 로그인 상태 -->
+                    <a href="#" class="text link-box" style="font-weight:bold;" onclick="openProfilePopup()">
+                        @if (User.HasClaim("IsAdmin", "true"))
+                        {
+                            <span style="color: white; font-weight: bold;">
+                                <img src="~/images/adminIcon.svg" style="width: 26px;" />
+                            </span>
+                        }
+                        @User.Identity.Name
+                    </a>
+                    <form asp-controller="Auth" asp-action="Logout" method="post" style="display:inline;">
+                        <button type="submit" class="text link-box" style="border:none; background:none; cursor:pointer;">로그아웃</button>
+                    </form>
+                    <!-- Will Add admin page
+                    <a class="text link-box" asp-controller="Auth" asp-action="SignIn">관리자 페이지</a>
+                    -->
+                }
+                else
+                {
+                    <!-- 비로그인 상태 -->
+                    <a class="text link-box" asp-controller="Auth" asp-action="SignIn">로그인</a>
+                    <a class="text link-box" asp-controller="Auth" asp-action="SignUp">회원가입</a>
+                }
+                <a class="text link-box" href="#">이용문의</a>
+            </div>
+
+            <!-- Logo and Other Content -->
+            <div class="w-middle">
+                <div class="wm-left">
+                    <a asp-controller="Home" asp-action="Index" style="color: white; text-decoration: none; font-size: 48px; font-weight: bold;">MAPLES</a>
+                </div>
+                <div class="wm-right">
+
+                </div>
+            </div>
+
+            <div class="nav">
+                <ul class="navbar">
+                    <li class="navItem"><a class="navlink" asp-controller="Category" asp-action="Notify">공지사항</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    @RenderBody()
+
+    <footer>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

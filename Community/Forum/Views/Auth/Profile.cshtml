@@ -1,0 +1,73 @@
+﻿@model AuthViewModel
+
+@{
+    ViewData["Title"] = "프로필 | Maples";
+    Layout = null;
+}
+
+<!-- Main Wrapper -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewData["Title"]</title>
+        <!-- CSS 파일 추가 -->
+        <link rel="stylesheet" href="~/css/site.css">
+    </head>
+    <body style="margin: 0; padding: 0;">
+        <div class="p-wrapper">
+            <div class="pw-header">
+                <div class="pwh-tab">
+                    <span class="pw-title">개인정보수정</span>
+                </div>
+                <div class="pwh-content">
+                    <div class="pwhc-left">
+                        <ul class="pwhc-ul">
+                            <li class="pwhc-item">이메일</li>
+                            <li class="pwhc-item">닉네임</li>
+                            <li class="pwhc-item">이름</li>
+                            <li class="pwhc-item">전화번호</li>
+                            <li class="pwhc-item">생년월일</li>
+                        </ul>
+                    </div>
+
+                    <div class="pwhc-right">
+                        <ul class="pwhc-ul2">
+                            <li class="pwhc-item2">
+                                <form asp-controller="Profile" asp-action="UpdateEmail" method="post">
+                                    <input asp-for="Email" class="pwhc-input" type="email" placeholder="@Model.Email" required />
+                                    <span asp-validation-for="Email" style="color: red;"></span>
+                                    <button class="editBtn" type="submit">수정하기</button>
+                                </form>
+                            </li>
+                            <li class="pwhc-item2">
+                                <form asp-controller="Profile" asp-action="UpdateNickName" method="post">
+                                    <input asp-for="NickName" class="pwhc-input" type="text" placeholder="@Model.NickName" required />
+                                    <span asp-validation-for="Email" style="color: red;"></span>
+                                    <button class="editBtn" type="submit">수정하기</button>
+                                </form>
+                            </li>
+                            <form asp-controller="Profile" asp-action="UpdatePersonal" method="post">
+                                <li class="pwhc-item2">
+                                    <input asp-for="Personal.Personal_Name" class="pwhc-input" type="text" placeholder="이름을 입력하세요." />
+                                </li>
+                                <li class="pwhc-item2">
+                                    <input asp-for="Personal.Personal_Phone" class="pwhc-input" type="text" placeholder="전화번호를 입력하세요." />
+                                </li>
+                                <li class="pwhc-item2">
+                                    <input asp-for="Personal.Personal_Dob" class="pwhc-input" type="date" />
+                                <button class="editBtn" type="submit">등록하기</button>
+                                </li>
+                            </form>
+                                </li>
+                            
+                            <li class="pwhc-item2" style="border: none !important;">
+                                <span style="margin-left: 10px;"> 이름, 전화 번호, 생년월일은 모두 입력해야 등록 됩니다. (필수사항 아님)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
