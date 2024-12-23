@@ -1,0 +1,50 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - reserp</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/reserp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="nav">
+                <div class="nav-left">
+                    <a class="navlink" asp-controller="Main" asp-action="Index">Dashboard</a>
+                    <a class="navlink" asp-controller="Main" asp-action="Financial">Financial</a>
+                    <a class="navlink" asp-controller="Main" asp-action="Franchise">Franchise</a>
+                    <a class="navlink" asp-controller="Main" asp-action="Employee">Employee</a>
+                    <a class="navlink" asp-controller="Main" asp-action="Inventory">Inventory</a>
+                    <a class="navlink" asp-controller="Main" asp-action="Settings">Settings</a>
+                </div>
+                <div class="nav-right">
+                    <div class="user-info">
+                        <p class="user-name">@User.Identity.Name</p>
+                        <p class="user-email">@User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value</p>
+                    </div>
+                    <form method="post" asp-controller="Home" asp-action="SignOut">
+                        <button type="submit" class="logout-btn">Sign Out</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </header>
+
+
+
+    @RenderBody()
+
+    <footer>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

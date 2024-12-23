@@ -1,0 +1,57 @@
+﻿@model NewUserViewModel
+
+<form asp-controller="Add" asp-action="AddNewUser" method="post">
+    <!-- Row 1-->
+    <div class="row">
+        <div class="col-2">
+            <label class="text-white fs-5 mb-2">Select Role</label>
+            <select asp-for="RoleID" class="form-select" aria-label="Default select example">
+                <option selected>Select user role</option>
+                <option value="1">Admin</option>
+                <option value="2">Franchise</option>
+                <option value="3">Store Manager</option>
+                <option value="4">Employee</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="row mt-5">
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input asp-for="AccountEmail" type="email" class="form-control" placeholder="Enter new user email">
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Password</label>
+                <input asp-for="AccountPassword" type="password" class="form-control" placeholder="Enter new user password">
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="row mt-4">
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Full Name</label>
+                <input asp-for="UserName" type="text" class="form-control" placeholder="Enter new user full name">
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Phone</label>
+                <input asp-for="UserPhone" type="text" class="form-control" placeholder="Enter new user phone number">
+            </div>
+        </div>
+    </div>
+
+    <!-- Button Row -->
+    <div class="d-flex justify-content-center mt-4 gap-5">
+        <button type="reset" class="cu-btn ms-3 bg-danger">Cancel</button>
+        <button type="submit" class="cu-btn">Submit</button>
+    </div>
+</form>
+
+

@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Settings | ERP";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- 왼쪽 메뉴 -->
+        <div class="col-md-2 p-3 vh-100" style="background-color: #1E1E1E;">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" asp-controller="Main" asp-action="Settings">Add</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 오른쪽 탭 콘텐츠 -->
+        <div class="col-md-10 p-3 vh-100 text-white">
+            <!-- 탭 버튼 -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active text-white" id="add-store-tab" data-bs-toggle="tab" data-bs-target="#add-store" type="button" role="tab" aria-controls="add-store" aria-selected="true">
+                        User List
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="add-user-tab" data-bs-toggle="tab" data-bs-target="#add-user" type="button" role="tab" aria-controls="add-user" aria-selected="false">
+                        Store List
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="inventory-tab" data-bs-toggle="tab" data-bs-target="#inventory" type="button" role="tab" aria-controls="inventory" aria-selected="false">
+                        Add User
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="employee-tab" data-bs-toggle="tab" data-bs-target="#employee" type="button" role="tab" aria-controls="employee" aria-selected="false">
+                        Add Store
+                    </button>
+                </li>
+            </ul>
+
+            <!-- 탭 콘텐츠 -->
+            <div class="tab-content mt-3" id="myTabContent">
+                <div class="tab-pane fade show active" id="add-store" role="tabpanel" aria-labelledby="add-store-tab">
+                    @Html.Partial("../Partials/_userList", ViewData["NewUserViewModels"] as IEnumerable<NewUserViewModel>)
+                </div>
+                <div class="tab-pane fade" id="add-user" role="tabpanel" aria-labelledby="add-user-tab">
+                    @Html.Partial("../Partials/_StoreList", ViewData["Stores"] as IEnumerable<UserStore>)
+                </div>
+                <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
+                    @Html.Partial("../Partials/_AddUser")
+                </div>
+                <div class="tab-pane fade" id="employee" role="tabpanel" aria-labelledby="employee-tab">
+                    @Html.Partial("../Partials/_AddStore", ViewData["UserStoreViewModel"] as IEnumerable<UserStore>)
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

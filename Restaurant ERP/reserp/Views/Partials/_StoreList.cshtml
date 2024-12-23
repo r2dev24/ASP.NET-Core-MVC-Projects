@@ -1,0 +1,28 @@
+﻿@model IEnumerable<reserp.Models.UserStore>
+
+<div>
+    <h5>Store List</h5>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Store Name</th>
+                <th>Store Address</th>
+                <th>Store Owner</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var store in Model)
+            {
+                <tr>
+                    <td>@store.StoreName</td>
+                    <td>
+                        @store.StreetNumber @store.StreetAddress @store.City @store.Province @store.PostalCode
+                    </td>
+                    <td>
+                        @store.UserName
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<reserp.Models.NewUserViewModel>
+
+<div>
+    <h5>User List</h5>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Account Email</th>
+                <th>Role ID</th>
+                <th>User Name</th>
+                <th>User Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.AccountEmail</td>
+                    <td>
+                        @switch (user.RoleID)
+                        {
+                            case 1:
+                                <span>Admin</span>
+                                break;
+                            case 2:
+                                <span>Franchise Owners</span>
+                                break;
+                            case 3:
+                                <span>Store Manager</span>
+                                break;
+                            case 4:
+                                <span>Employee</span>
+                                break;
+                            default:
+                                <span>Unknown</span>
+                                break;
+                        }
+                    </td>
+                    <td>@user.UserName</td>
+                    <td>@user.UserPhone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

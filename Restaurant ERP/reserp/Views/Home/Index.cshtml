@@ -1,0 +1,44 @@
+﻿@model Account
+
+@{
+    ViewData["Title"] = "SignIn | ERP";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A basic HTML skeleton for your project.">
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="/css/SignInStyle.css">
+        <link rel="stylesheet" href="/css/site.css"> 
+    </head>
+    <body>
+        <div class="wrapper">
+            <h2>Sign In</h2>
+            @if (ViewBag.Error != null)
+            {
+                <p class="error-message">@ViewBag.Error</p>
+            }
+
+            <form asp-controller="Home" asp-action="SignIn" method="post">
+                <div class="input-group">
+                    <!-- Username -->
+                    <label for="username">Username</label>
+                    <input asp-for="AccountEmail" type="text" id="username" placeholder="Enter your username">
+                </div>
+
+                <div class="input-group">
+                    <!-- Password -->
+                    <label for="password">Password</label>
+                    <input asp-for="AccountPassword" type="password" id="password" placeholder="Enter your password">
+                </div>
+
+
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </body>
+</html>

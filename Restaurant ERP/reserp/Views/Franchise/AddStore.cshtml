@@ -1,0 +1,107 @@
+﻿@model UserStore
+
+@{
+    ViewData["Title"] = "Add Store | ERP";
+}
+
+@{
+    var users = ViewData["Users"] as IEnumerable<UserStore>;
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Nav -->
+        <div class="col-md-2 p-3 vh-100" style="background-color: #1E1E1E;">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" asp-controller="Main" asp-action="Franchise">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" asp-controller="Franchise" asp-action="AddStore">Add Store</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Right Side -->
+        <div class="col-md-10 p-3 vh-100 text-white">
+            <!-- Title -->
+            <h1 class="text-white fw-bold mb-5">Add New Store</h1>
+
+            <!-- Form Store-->
+            <form asp-controller="Add" asp-action="AddNewStore" method="post">
+                <!-- First Row-->
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <label class="text-white fs-5 mb-2">Select Store Owner</label>
+                        <select asp-for="UserName" class="form-select" aria-label="Default select example">
+                            <option selected>Select user role</option>
+                            @foreach (var user in (IEnumerable<SelectListItem>)ViewData["Users"])
+                            {
+                                <option value="@user.Text">@user.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label class="text-white fs-5 mb-2">Store Name</label>
+                            <input asp-for="StoreName" type="text" class="form-control" placeholder="Enter new store name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="row mt-3">
+                    <div class="col-2">
+                        <div class="mb-3">
+                            <label class="text-white fs-5 mb-2">Street Number</label>
+                            <input asp-for="StreetNumber" type="text" class="form-control" placeholder="Enter street number">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label class="text-white fs-5 mb-2">Street Address</label>
+                            <input asp-for="StreetAddress" type="text" class="form-control" placeholder="Enter street address">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="mb-3">
+                            <label class="text-white fs-5 mb-2">City</label>
+                            <input asp-for="City" type="text" class="form-control" placeholder="Enter city name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="row mt-3">
+                    <div class="col-2">
+                        <div class="mb-3">
+                            <label class="text-white fs-5 mb-2">Province</label>
+                            <input asp-for="Province" type="text" class="form-control" placeholder="Enter province">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="mb-3">
+                            <label class="text-white fs-5 mb-2">Postal Code</label>
+                            <input asp-for="PostalCode" type="text" class="form-control" placeholder="Enter Postal Code">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button Row -->
+                <div class="d-flex justify-content-center mt-4 gap-5">
+                    <button type="reset" class="cu-btn ms-3 bg-danger">Cancel</button>
+                    <button type="submit" class="cu-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

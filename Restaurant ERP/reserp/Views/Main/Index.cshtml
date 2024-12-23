@@ -1,0 +1,48 @@
+﻿@model reserp.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard | ERP";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- 왼쪽 메뉴 -->
+        <div class="col-md-2 p-3 vh-100" style="background-color: #1E1E1E;">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" asp-controller="Main" asp-action="Index">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-5" style="height: 60px;" href="#">Default</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 오른쪽 탭 콘텐츠 -->
+        <div class="col-md-10 p-3 vh-100 text-white">
+            <div class="row gap-3 ms-3">
+                <!-- Total User Dispaly -->
+                <div class="card text-center" style="background-color: #1E1E1E; color: #E0E0E0; border: 1px solid #333333; border-radius: 8px; padding: 20px; width: 18rem;">
+                    <h1 class="fw-bold" style="font-size: 1.5rem; margin-bottom: 15px;">Total User</h1>
+                    <p class="fs-3 fw-bold" style="font-size: 1.2rem; color: #BB86FC;">@Model.UserCount</p>
+                </div>
+
+                <!-- Total Store Display -->
+                <div class="card text-center" style="background-color: #1E1E1E; color: #E0E0E0; border: 1px solid #333333; border-radius: 8px; padding: 20px; width: 18rem;">
+                    <h1 class="fw-bold" style="font-size: 1.5rem; margin-bottom: 15px;">Total Stores</h1>
+                    <p class="fs-3 fw-bold" style="font-size: 1.2rem; color: #BB86FC;">@Model.StoreCount</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
